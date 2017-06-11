@@ -13,11 +13,35 @@
         "Snippets"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello"
+        "onCommand:cmstead.signet.wrapInEnforce",
+        "onCommand:cmstead.signet.wrapInEnforceAndAssign",
+        "onCommand:cmstead.signet.wrapInSign",
+        "onCommand:cmstead.signet.wrapInSignAndAssign"
     ],
     "main": "./extension",
     "contributes": {
-        "commands": [],
+        "commands": [
+            {
+                "command": "cmstead.signet.wrapInEnforce",
+                "title": "Signet: Wrap in enforce",
+                "description": "Wrap function in signet.enforce"
+            },
+            {
+                "command": "cmstead.signet.wrapInEnforceAndAssign",
+                "title": "Signet: Wrap in enforce and assign",
+                "description": "Wrap function in signet.enforce and assign to constant"
+            },
+            {
+                "command": "cmstead.signet.wrapInSign",
+                "title": "Signet: Wrap in sign",
+                "description": "Wrap function in signet.sign"
+            },
+            {
+                "command": "cmstead.signet.wrapInSignAndAssign",
+                "title": "Signet: Wrap in sign and assign",
+                "description": "Wrap function in signet.sign and assign to constant"
+            }
+        ],
         "snippets": [
             {
                 "language": "javascript",
@@ -27,7 +51,27 @@
                 "language": "typescript",
                 "path": "./snippets/vs-code-signet.json"
             }
-        ]
+        ],
+        "menus": {
+            "editor/context": [
+                {
+                    "command": "cmstead.signet.wrapInEnforce",
+                    "group": "6_signet"
+                },
+                {
+                    "command": "cmstead.signet.wrapInEnforceAndAssign",
+                    "group": "6_signet"
+                },
+                {
+                    "command": "cmstead.signet.wrapInSign",
+                    "group": "6_signet"
+                },
+                {
+                    "command": "cmstead.signet.wrapInSignAndAssign",
+                    "group": "6_signet"
+                }
+            ]
+        }
     },
     "scripts": {
         "postinstall": "node ./node_modules/vscode/bin/install",
@@ -61,5 +105,8 @@
         "typescript": "^2.0.3",
         "vscode": "^1.0.0"
     },
-    "dependencies": {}
+    "dependencies": {
+        "dject": "^1.4.1",
+        "jfp": "^4.3.1"
+    }
 }
