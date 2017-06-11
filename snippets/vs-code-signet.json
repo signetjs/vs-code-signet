@@ -1,0 +1,52 @@
+{
+    "Enforce Function": {
+        "prefix": "enforce",
+        "body": [
+            "const ${1:functionName} = signet.enforce(",
+            "\t'${2:inputTypes} => ${3:outputType}',",
+            "\tfunction($4) {",
+            "\t\t$5",
+            "\t});"
+        ],
+        "description": "Enforce function with contract signature"
+    },
+    "Sign Function": {
+        "prefix": "sign",
+        "body": [
+            "const ${1:functionName} = signet.sign(",
+            "\t'${2:inputTypes} => ${3:outputType}',",
+            "\tfunction($4) {",
+            "\t\t$5",
+            "\t});"
+        ],
+        "description": "Sign function with contract signature"
+    },
+    "Is Value Type of Type": {
+        "prefix": "istypeof",
+        "body": [
+            "signet.isTypeOf(${1:type})(${2:value})"
+        ],
+        "description": "Signet isTypeOf checker"
+    },
+    "Extend Types": {
+        "prefix": "extend",
+        "body": [
+            "signet.extend(${1:typeName}, ${2:typeFunction})"
+        ],
+        "description": "Register a new type"
+    },
+    "Create Subtype": {
+        "prefix": "subtype",
+        "body": [
+            "signet.subtype(${1:currentTypeName)(${2:newTypeName}, ${3:typeFunction})"
+        ],
+        "description": "Register a new subtype"
+    },
+    "Create Alias": {
+        "prefix": "alias",
+        "body": [
+            "signet.alias(${1:newTypeName, ${2:typeString})"
+        ],
+        "description": "Register a new type alias"
+    }
+}
