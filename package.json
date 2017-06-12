@@ -2,7 +2,11 @@
     "name": "vs-code-signet",
     "displayName": "Signet",
     "description": "A signet helper plugin for Visual Studio Code",
-    "version": "1.0.0",
+    "version": "1.0.2",
+    "repository": {
+        "url": "https://github.com/signetjs/vs-code-signet.git",
+        "type": "git"
+    },
     "publisher": "cmstead",
     "engines": {
         "vscode": "^1.12.0"

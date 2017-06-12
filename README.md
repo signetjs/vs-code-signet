@@ -1,4 +1,4 @@
-# vs-code-signet ##
+# Signet for Visual Studio Code #
 
 Signet is the fast, easy and powerful documentation-through-types library for Javascript. With it, you can add type validation to your code and provide useful real-time feedback to anyone interacting with your API.  With helper packages, you can turn your environment into a fast, informative, intelligent system which will help to speed development and reduce friction as you solve interesting problems throughout your day.
 
