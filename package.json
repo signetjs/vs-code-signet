@@ -1,8 +1,8 @@
 {
     "name": "vs-code-signet",
-    "displayName": "vs-code-signet",
+    "displayName": "Signet",
     "description": "A signet helper plugin for Visual Studio Code",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "publisher": "cmstead",
     "engines": {
         "vscode": "^1.12.0"
@@ -12,6 +12,13 @@
         "Languages",
         "Snippets"
     ],
+    "tags": [
+        "Javascript",
+        "ECMAScript",
+        "Types",
+        "Signet",
+        "Refactoring"
+    ],
     "activationEvents": [
         "onCommand:cmstead.signet.wrapInEnforce",
         "onCommand:cmstead.signet.wrapInEnforceAndAssign",
@@ -20,6 +27,26 @@
     ],
     "main": "./extension",
     "contributes": {
+        "languages": [
+            {
+                "id": "javascript",
+                "extensions": [
+                    ".js"
+                ],
+                "aliases": [
+                    "JS"
+                ]
+            },
+            {
+                "id": "typescript",
+                "extensions": [
+                    ".ts"
+                ],
+                "aliases": [
+                    "TS"
+                ]
+            }
+        ],
         "commands": [
             {
                 "command": "cmstead.signet.wrapInEnforce",
@@ -73,10 +100,28 @@
             ]
         }
     },
+    "screenshots": [
+        {
+            "path": "images/function-enforcing.gif"
+        }
+    ],
+    "galleryBanner": {
+        "color": "#ffffff"
+    },
+    "links": {
+        "getstarted": {
+            "uri": "https://github.com/signetjs/vs-code-signet/blob/master/README.md"
+        },
+        "support": {
+            "uri": "https://github.com/signetjs/vs-code-signet/issues"
+        }
+    },
+    "icon": "images/signet-logo.png",
     "scripts": {
         "postinstall": "node ./node_modules/vscode/bin/install",
         "test": "node ./node_modules/vscode/bin/test"
     },
+    "public": true,
     "quokka": {
         "plugins": [
             "quokka-mocha-bdd",

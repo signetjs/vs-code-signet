@@ -10,6 +10,13 @@
         ],
         "description": "Enforce function with contract signature"
     },
+    "Inline Enforce": {
+        "prefix": "enforceinline",
+        "body": [
+            "signet.enforce(${1:typeSignature}, ${2:functionToEnforce})"
+        ],
+        "description": "Enforce function inline"
+    },
     "Sign Function": {
         "prefix": "sign",
         "body": [
@@ -20,6 +27,13 @@
             "\t});"
         ],
         "description": "Sign function with contract signature"
+    },
+    "Inline Sign": {
+        "prefix": "signinline",
+        "body": [
+            "signet.sign(${1:typeSignature}, ${2:functionToSign})"
+        ],
+        "description": "Enforce function inline"
     },
     "Is Value Type of Type": {
         "prefix": "istypeof",
@@ -48,5 +62,12 @@
             "signet.alias(${1:newTypeName, ${2:typeString})"
         ],
         "description": "Register a new type alias"
+    },
+    "Create Named Duck Type": {
+        "prefix": "ducktype",
+        "body": [
+            "signet.defineDuckType(${1:typeName}, ${2:duckTypeObject})"
+        ],
+        "description": "Register a new named duck type"
     }
 }
