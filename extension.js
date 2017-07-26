@@ -10,25 +10,25 @@ function activate(context) {
     let wrapInEnforce = container.build('wrapInEnforceFactory');
     context.subscriptions.push(vscode.commands.registerCommand(
         'cmstead.signet.wrapInEnforce',
-        wrapInEnforce(vscode.window.activeTextEditor, formatDocument)
+        wrapInEnforce(null, formatDocument)
     ));
 
     let wrapInEnforceAndAssign = container.build('wrapInEnforceAndAssignFactory');
     context.subscriptions.push(vscode.commands.registerCommand(
         'cmstead.signet.wrapInEnforceAndAssign',
-        wrapInEnforceAndAssign(vscode.window.activeTextEditor, formatDocument)
+        wrapInEnforceAndAssign(null, formatDocument)
     ));
 
     let wrapInSign = container.build('wrapInSignFactory');
     context.subscriptions.push(vscode.commands.registerCommand(
         'cmstead.signet.wrapInSign',
-        wrapInSign(vscode.window.activeTextEditor, formatDocument)
+        wrapInSign(null, formatDocument)
     ));
 
     let wrapInSignAndAssign = container.build('wrapInSignAndAssignFactory');
     context.subscriptions.push(vscode.commands.registerCommand(
         'cmstead.signet.wrapInSignAndAssign',
-        wrapInSignAndAssign(vscode.window.activeTextEditor, formatDocument)
+        wrapInSignAndAssign(null, formatDocument)
     ));
 
 }

@@ -1,13 +1,15 @@
 'use strict';
 
-function wrapInSignFactory(wrapFactory) {
+function wrapInSignFactory(wrapFactory, vsCodeFactory) {
 
-    return function (vsEditor, callback) {
-
+    return function (_, callback) {
         const templateHead = 'signet.sign(';
 
         return function wrapInEnforce() {
-            wrapFactory(vsEditor, callback)(templateHead);
+            const vscode = vsCodeFactory.get()
+            const activeEditor = vscode.window.activeTextEditor;
+
+            wrapFactory(activeEditor, callback)(templateHead);
         }
 
     }
