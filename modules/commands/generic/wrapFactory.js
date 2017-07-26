@@ -10,13 +10,18 @@ function wrapFactory(
 
     return function (vsEditor, callback) {
 
-        const templateTail = ');';
 
         function getScopeCoords() {
             let selectionCoords = utilities.buildCoords(vsEditor, 0);
             let lines = utilities.getEditorDocument(vsEditor)._lines;
-            return scopeFinder.findScopeCoords(lines.join('\n'), selectionCoords);
+            return scopeFinder.findFunctionCoords(lines.join('\n'), selectionCoords);
         }
+
+        function applyToDocument(result, scopeCoords) {
+            const text = result.join('\n');
+            return editActionsFactory(vsEditor).applySetEdit(text, scopeCoords).then(callback);
+        }
+
 
         return function signetWrap(templateHead, assign) {
             let scopeCoords;
@@ -31,7 +36,7 @@ function wrapFactory(
                 let functionName = functionUtils.getName(functionSource);
                 let signature = functionUtils.getSignature(functionSource);
 
-                if(assign) {
+                if (assign) {
                     let varName = functionName === '' ? 'myFunction' : functionName;
                     let assignment = 'const ' + varName + ' = ';
                     result = [assignment + result[0]];
@@ -45,16 +50,13 @@ function wrapFactory(
                 selection = null;
             }
 
-            function applyToDocument() {
-                let text = result.join('\n') + templateTail;
-
-                return editActionsFactory(vsEditor).applySetEdit(text, scopeCoords).then(callback);
-            }
+            const templateTail = ');';
+            result.push(templateTail);
 
             if (selection === null) {
                 logger.info('Unable to complete action: ' + errorMessage);
             } else {
-                applyToDocument();
+                applyToDocument(result, scopeCoords);
             }
         }
 

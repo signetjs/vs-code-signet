@@ -1,161 +1,163 @@
 {
-    "name": "vs-code-signet",
-    "displayName": "Signet",
-    "description": "A signet helper plugin for Visual Studio Code",
-    "version": "1.0.2",
-    "repository": {
-        "url": "https://github.com/signetjs/vs-code-signet.git",
-        "type": "git"
-    },
-    "publisher": "cmstead",
-    "engines": {
-        "vscode": "^1.12.0"
-    },
-    "categories": [
-        "Other",
-        "Languages",
-        "Snippets"
-    ],
-    "tags": [
-        "Javascript",
-        "ECMAScript",
-        "Types",
-        "Signet",
-        "Refactoring"
-    ],
-    "activationEvents": [
-        "onCommand:cmstead.signet.wrapInEnforce",
-        "onCommand:cmstead.signet.wrapInEnforceAndAssign",
-        "onCommand:cmstead.signet.wrapInSign",
-        "onCommand:cmstead.signet.wrapInSignAndAssign"
-    ],
-    "main": "./extension",
-    "contributes": {
-        "languages": [
-            {
-                "id": "javascript",
-                "extensions": [
-                    ".js"
-                ],
-                "aliases": [
-                    "JS"
-                ]
-            },
-            {
-                "id": "typescript",
-                "extensions": [
-                    ".ts"
-                ],
-                "aliases": [
-                    "TS"
-                ]
-            }
+  "name": "vs-code-signet",
+  "displayName": "Signet",
+  "description": "A signet helper plugin for Visual Studio Code",
+  "version": "1.1.0",
+  "repository": {
+    "url": "https://github.com/signetjs/vs-code-signet.git",
+    "type": "git"
+  },
+  "publisher": "cmstead",
+  "engines": {
+    "vscode": "^1.12.0"
+  },
+  "categories": [
+    "Other",
+    "Languages",
+    "Snippets"
+  ],
+  "tags": [
+    "Javascript",
+    "ECMAScript",
+    "Types",
+    "Signet",
+    "Refactoring"
+  ],
+  "activationEvents": [
+    "onCommand:cmstead.signet.wrapInEnforce",
+    "onCommand:cmstead.signet.wrapInEnforceAndAssign",
+    "onCommand:cmstead.signet.wrapInSign",
+    "onCommand:cmstead.signet.wrapInSignAndAssign"
+  ],
+  "main": "./extension",
+  "contributes": {
+    "languages": [
+      {
+        "id": "javascript",
+        "extensions": [
+          ".js"
         ],
-        "commands": [
-            {
-                "command": "cmstead.signet.wrapInEnforce",
-                "title": "Signet: Wrap in enforce",
-                "description": "Wrap function in signet.enforce"
-            },
-            {
-                "command": "cmstead.signet.wrapInEnforceAndAssign",
-                "title": "Signet: Wrap in enforce and assign",
-                "description": "Wrap function in signet.enforce and assign to constant"
-            },
-            {
-                "command": "cmstead.signet.wrapInSign",
-                "title": "Signet: Wrap in sign",
-                "description": "Wrap function in signet.sign"
-            },
-            {
-                "command": "cmstead.signet.wrapInSignAndAssign",
-                "title": "Signet: Wrap in sign and assign",
-                "description": "Wrap function in signet.sign and assign to constant"
-            }
+        "aliases": [
+          "JS"
+        ]
+      },
+      {
+        "id": "typescript",
+        "extensions": [
+          ".ts"
         ],
-        "snippets": [
-            {
-                "language": "javascript",
-                "path": "./snippets/vs-code-signet.json"
-            },
-            {
-                "language": "typescript",
-                "path": "./snippets/vs-code-signet.json"
-            }
-        ],
-        "menus": {
-            "editor/context": [
-                {
-                    "command": "cmstead.signet.wrapInEnforce",
-                    "group": "6_signet"
-                },
-                {
-                    "command": "cmstead.signet.wrapInEnforceAndAssign",
-                    "group": "6_signet"
-                },
-                {
-                    "command": "cmstead.signet.wrapInSign",
-                    "group": "6_signet"
-                },
-                {
-                    "command": "cmstead.signet.wrapInSignAndAssign",
-                    "group": "6_signet"
-                }
-            ]
-        }
-    },
-    "screenshots": [
+        "aliases": [
+          "TS"
+        ]
+      }
+    ],
+    "commands": [
+      {
+        "command": "cmstead.signet.wrapInEnforce",
+        "title": "Signet: Wrap in enforce",
+        "description": "Wrap function in signet.enforce"
+      },
+      {
+        "command": "cmstead.signet.wrapInEnforceAndAssign",
+        "title": "Signet: Wrap in enforce and assign",
+        "description": "Wrap function in signet.enforce and assign to constant"
+      },
+      {
+        "command": "cmstead.signet.wrapInSign",
+        "title": "Signet: Wrap in sign",
+        "description": "Wrap function in signet.sign"
+      },
+      {
+        "command": "cmstead.signet.wrapInSignAndAssign",
+        "title": "Signet: Wrap in sign and assign",
+        "description": "Wrap function in signet.sign and assign to constant"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/vs-code-signet.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/vs-code-signet.json"
+      }
+    ],
+    "menus": {
+      "editor/context": [
         {
-            "path": "images/function-enforcing.gif"
-        }
-    ],
-    "galleryBanner": {
-        "color": "#ffffff"
-    },
-    "links": {
-        "getstarted": {
-            "uri": "https://github.com/signetjs/vs-code-signet/blob/master/README.md"
+          "command": "cmstead.signet.wrapInEnforce",
+          "group": "6_signet"
         },
-        "support": {
-            "uri": "https://github.com/signetjs/vs-code-signet/issues"
-        }
-    },
-    "icon": "images/signet-logo.png",
-    "scripts": {
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "node ./node_modules/vscode/bin/test"
-    },
-    "public": true,
-    "quokka": {
-        "plugins": [
-            "quokka-mocha-bdd",
-            "quokka-signet-explorer",
-            "quokka-prerun"
-        ],
-        "quokka-mocha-bdd": {
-            "interface": "bdd"
+        {
+          "command": "cmstead.signet.wrapInEnforceAndAssign",
+          "group": "6_signet"
         },
-        "quokka-prerun": {
-            "prerunCommands": [
-                "grunt build"
-            ]
+        {
+          "command": "cmstead.signet.wrapInSign",
+          "group": "6_signet"
+        },
+        {
+          "command": "cmstead.signet.wrapInSignAndAssign",
+          "group": "6_signet"
         }
-    },
-    "devDependencies": {
-        "@types/mocha": "^2.2.32",
-        "@types/node": "^6.0.40",
-        "approvals": "^2.1.2",
-        "chai": "^4.0.2",
-        "eslint": "^3.6.0",
-        "mocha": "^2.3.3",
-        "quokka-mocha-bdd": "^1.1.0",
-        "quokka-prerun": "^1.0.0",
-        "quokka-signet-explorer": "^1.1.1",
-        "typescript": "^2.0.3",
-        "vscode": "^1.0.0"
-    },
-    "dependencies": {
-        "dject": "^1.4.1",
-        "jfp": "^4.3.1"
+      ]
     }
+  },
+  "screenshots": [
+    {
+      "path": "images/function-enforcing.gif"
+    }
+  ],
+  "galleryBanner": {
+    "color": "#ffffff"
+  },
+  "links": {
+    "getstarted": {
+      "uri": "https://github.com/signetjs/vs-code-signet/blob/master/README.md"
+    },
+    "support": {
+      "uri": "https://github.com/signetjs/vs-code-signet/issues"
+    }
+  },
+  "icon": "images/signet-logo.png",
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
+  },
+  "public": true,
+  "quokka": {
+    "plugins": [
+      "quokka-mocha-bdd",
+      "quokka-signet-explorer",
+      "quokka-prerun"
+    ],
+    "quokka-mocha-bdd": {
+      "interface": "bdd"
+    },
+    "quokka-prerun": {
+      "prerunCommands": [
+        "grunt build"
+      ]
+    }
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.32",
+    "@types/node": "^6.0.40",
+    "approvals": "^2.1.2",
+    "chai": "^4.0.2",
+    "eslint": "^3.6.0",
+    "mocha": "^2.3.3",
+    "quokka-mocha-bdd": "^1.1.0",
+    "quokka-prerun": "^1.0.0",
+    "quokka-signet-explorer": "^1.1.1",
+    "typescript": "^2.0.3",
+    "vscode": "^1.0.0"
+  },
+  "dependencies": {
+    "babel-core": "^6.25.0",
+    "babylon": "^6.17.4",
+    "dject": "^1.4.1",
+    "jfp": "^4.3.1"
+  }
 }

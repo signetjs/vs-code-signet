@@ -2,7 +2,7 @@
 
 const signet = require('signet')();
 const signetAssembler = require('signet-assembler');
-const esprima = require('esprima');
+const parser = require('./parser');
 
 function functionUtils() {
 
@@ -27,12 +27,14 @@ function functionUtils() {
     }
 
     function getParams(body) {
-        return isObjectInstance(body.params) ? body.params : body.expression.params;
+        return isObjectInstance(body.params) 
+            ? body.params 
+            : body.expression.params;
     }
 
     function getParsedFunction(fn) {
-        let parseableStr = '(' + fn.toString() + ')()';
-        return esprima.parse(parseableStr).body[0].expression.callee;
+        const ast = parser.getAst(fn.toString());
+        return ast.program.body[0];
     }
 
     function getSignature(fn) {
